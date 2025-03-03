@@ -28,6 +28,28 @@ contract Contract is Ownable, ReentrancyGuard {
         return marketId;
     }
 
+    function buyShares(uint256 _marketId, bool _isOptionA, uint256 _amount) external {
+        Market storage market = markets[_marketId];
+        require(
+            block.timestamp < market.endTime,
+            "Market has already ended"
+        );
+        require(!market.resolved,"Market has already been resolved");
+        require(_amount > 0, "Amount must be greater than 0");
+
+        require(bettingToken.transferFrom(msg.sender, address(this), _amount), "Transfer failed");
+
+        if (_isOptionA) {
+            market.totalOptionAShares += _amount;
+            market.optionASharesBalance[msg.sender] += _amount;
+        } else {
+            market.totalOptionBShares += _amount;
+            market.optionBSharesBalance[msg.sender] += _amount;
+        }
+
+        emit SharesPurchased(_marketId, msg.sender, _isOptionA, _amount);
+    }
+
     
 
 
