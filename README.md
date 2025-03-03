@@ -1,14 +1,7 @@
 ## Getting Started
 
-Create a project using this example:
-
-```bash
-npx thirdweb create --contract --template forge-starter
-```
-
-You can start editing the page by modifying `contracts/Contract.sol`.
-
-To add functionality to your contracts, you can use the `@thirdweb-dev/contracts` package which provides base contracts and extensions to inherit. The package is already installed with this project. Head to our [Contracts Extensions Docs](https://portal.thirdweb.com/thirdweb-deploy/contract-extensions) to learn more.
+This project is to understand, test and learn Preiciton markets and using ThirdWeb's tools to do it.
+Guidence from the following video: https://www.youtube.com/watch?v=BHLIJnS5Ikw
 
 ## Building the project
 
