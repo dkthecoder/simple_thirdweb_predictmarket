@@ -40,5 +40,8 @@ contract Contract is Ownable, ReentrancyGuard {
 
     event Claimed(uint256 indexed marketId, address indexed user, unit256 amount);
 
-    constructor() {}
+    constructor(address, _bettingToken) {
+        bettingToken = IERC20(_bettingToken);
+        _setupOwner(msg.sender); // set the contract deployer as the owner
+    }
 }
