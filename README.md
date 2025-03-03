@@ -3,6 +3,11 @@
 This project is to understand, test and learn Preiciton markets and using ThirdWeb's tools to do it.
 Guidence from the following video: https://www.youtube.com/watch?v=BHLIJnS5Ikw
 
+The proejct is to demonstract a simple precition market like Polymarket or Myriad. The simple market example is;
+- Question for prediciton
+- expirey of the prediciton
+- two options for prediciton
+
 ## Building the project
 
 After any changes to the contract, run:
