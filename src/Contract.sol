@@ -50,7 +50,15 @@ contract Contract is Ownable, ReentrancyGuard {
         emit SharesPurchased(_marketId, msg.sender, _isOptionA, _amount);
     }
 
-    
+    function resolveMarket(uint256 _marketId, MarketOutcome _outcome) external {
+        require(msg.sender == owner(), "Only the owner can resolve a market");
+        Market storage market = markets[_marketId];
+        require(block.timestamp > market.endTime, "Market has not ended yet");
+        require(!market.resolved, "Market has already been resolved");
+        market.resolved = true;
+        market.outcome = _outcome;
+        emit MarketResolved(_marketId, _outcome);
+    }
 
 
     enum MarketOutcome {
